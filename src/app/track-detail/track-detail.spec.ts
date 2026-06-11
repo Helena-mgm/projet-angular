@@ -30,7 +30,7 @@ describe('TrackDetail', () => {
 
     fixture = TestBed.createComponent(TrackDetail);
     component = fixture.componentInstance;
-    fixture.componentRef.setInput('id', track.id); // T5S6T7
+    fixture.componentRef.setInput('id', track.id); 
   });
 
   it('should create', () => {

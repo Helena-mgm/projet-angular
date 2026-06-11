@@ -4,15 +4,15 @@ import { tap } from 'rxjs';
 import { environment } from '../../environments/environment';
 import { AuthUser, LoginResponse } from '../models/auth';
 
-const TOKEN_STORAGE_KEY = 'cinetrack.accessToken'; // F1A2B3
+const TOKEN_STORAGE_KEY = 'cinetrack.accessToken'; 
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
   private http = inject(HttpClient);
-  private tokenSignal = signal<string | null>(localStorage.getItem(TOKEN_STORAGE_KEY)); // A7U8T9
-  private userSignal = signal<AuthUser | null>(null); // U1S2R3
+  private tokenSignal = signal<string | null>(localStorage.getItem(TOKEN_STORAGE_KEY)); 
+  private userSignal = signal<AuthUser | null>(null); 
 
-  readonly isLoggedIn = computed(() => this.tokenSignal() !== null); // S4E5S6
+  readonly isLoggedIn = computed(() => this.tokenSignal() !== null); 
   readonly user = computed(() => this.userSignal());
 
   get token(): string | null {
@@ -21,17 +21,17 @@ export class AuthService {
 
   login(email: string, password: string) {
     return this.http
-      .post<LoginResponse>(`${environment.apiUrl}/login`, { email, password }) // P1O2S3
+      .post<LoginResponse>(`${environment.apiUrl}/login`, { email, password }) 
       .pipe(
         tap((response) => {
           this.tokenSignal.set(response.accessToken);
           this.userSignal.set(response.user);
-          localStorage.setItem(TOKEN_STORAGE_KEY, response.accessToken); // T4K5N6
+          localStorage.setItem(TOKEN_STORAGE_KEY, response.accessToken);
         }),
       );
   }
 
-  logout(): void { // O7U8T9
+  logout(): void {
     this.tokenSignal.set(null);
     this.userSignal.set(null);
     localStorage.removeItem(TOKEN_STORAGE_KEY);
