@@ -4,6 +4,16 @@
     <div>
       <h2>{{ t.title }} — {{ t.artist }}</h2>
       <p>{{ t.album }} ({{ t.year }})</p>
+      <div class="actions">
+        @if (isLoggedIn()) {
+          <button type="button" (click)="deleteTrack()" aria-label="Supprimer ce morceau" class="delete">
+            Supprimer
+          </button>
+          <button type="button" (click)="goToEdit()" aria-label="Modifier ce morceau" class="edit">
+            Modifier
+          </button>
+        }
+      </div>
       <dl>
         <div>
           <dt>Genre</dt>
