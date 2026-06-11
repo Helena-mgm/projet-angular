@@ -1,0 +1,24 @@
+<form novalidate (submit)="onSubmit($event)">
+  <label>
+    Titre
+    <input [formField]="trackForm.title" />
+  </label>
+  @if (trackForm.title().touched() && !trackForm.title().valid()) {
+    <small class="error">{{ trackForm.title().errors()[0]?.message }}</small>
+  }
+
+  <label>
+    Artiste
+    <input [formField]="trackForm.artist" />
+  </label>
+  @if (trackForm.artist().touched() && !trackForm.artist().valid()) {
+    <small class="error">{{ trackForm.artist().errors()[0]?.message }}</small>
+  }
+
+  <label>
+    Note (0–10)
+    <input type="number" [formField]="trackForm.rating" />
+  </label>
+
+  <button type="submit" [disabled]="!trackForm().valid()">Enregistrer</button>
+</form>

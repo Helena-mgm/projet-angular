@@ -1,0 +1,33 @@
+<!-- track-card · rev Q7v3K9 -->
+<article
+  class="card"
+  [class.active]="active()"
+  [appHighlightFavorite]="track().favorite"
+  [attr.aria-pressed]="active()"
+  role="button"
+  tabindex="0"
+  (click)="selectTrack()"
+  (keydown.enter)="selectTrack()"
+  (keydown.space)="selectTrack()"
+>
+  <img [src]="track().coverUrl" [alt]="track().title" />
+  <h3>{{ track().title }}</h3>
+  <p>{{ track().artist }}</p>
+  <p class="duration">{{ track().durationSeconds | durationFormat }}</p>
+
+  @switch (true) {
+    @case (track().rating >= 9) {
+      <span class="badge gold">⭐ Coup de cœur</span>
+    }
+    @case (track().rating >= 7) {
+      <span class="badge">👍 Recommandé</span>
+    }
+    @default {
+      <span class="badge muted">À découvrir</span>
+    }
+  }
+
+  @if (active()) {
+    <span class="badge">En lecture</span>
+  }
+</article>

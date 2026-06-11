@@ -1,0 +1,22 @@
+.search {
+  display: grid;
+  gap: 0.375rem;
+  margin-block: 1rem;
+}
+
+.search span {
+  font-weight: 700;
+}
+
+.search input {
+  width: 100%;
+  padding: 0.625rem 0.75rem;
+  border: 1px solid #9ca3af;
+  border-radius: 0.5rem;
+  font: inherit;
+}
+
+.search input:focus {
+  outline: 3px solid #2563eb;
+  outline-offset: 2px;
+}

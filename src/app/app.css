@@ -1,0 +1,64 @@
+.top-layout {
+  display: grid;
+  grid-template-columns: minmax(18rem, 24rem) minmax(18rem, 26rem);
+  justify-content: space-between;
+  align-items: start;
+  gap: 2rem;
+  margin-block: 1rem 2rem;
+}
+
+.track-create,
+.auth-panel {
+  min-width: 0;
+}
+
+.auth-panel {
+  justify-self: end;
+  width: min(100%, 26rem);
+}
+
+.session {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+  justify-content: flex-end;
+  margin: 0;
+}
+
+.session p {
+  margin: 0;
+  font-weight: 800;
+}
+
+.session button {
+  min-height: 2.5rem;
+  padding: 0.55rem 0.9rem;
+  color: #111827;
+  font: inherit;
+  font-weight: 800;
+  cursor: pointer;
+  border: 2px solid #cbd5e1;
+  border-radius: 0.5rem;
+  background: #fff;
+}
+
+.session button:focus-visible {
+  outline: 3px solid #2563eb;
+  outline-offset: 3px;
+}
+
+@media (max-width: 760px) {
+  .top-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .auth-panel {
+    justify-self: stretch;
+    width: 100%;
+  }
+
+  .session {
+    justify-content: flex-start;
+  }
+}

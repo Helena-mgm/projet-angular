@@ -1,0 +1,27 @@
+<form class="login" novalidate [formGroup]="form" (submit)="submit()">
+  <h2>Connexion</h2>
+
+  <app-ui-text-field
+    label="Email"
+    type="email"
+    autocomplete="email"
+    formControlName="email"
+    [error]="emailError()"
+  />
+
+  <app-ui-text-field
+    label="Mot de passe"
+    type="password"
+    autocomplete="current-password"
+    formControlName="password"
+    [error]="passwordError()"
+  />
+
+  @if (loginFailed()) {
+    <p class="error" role="alert">Connexion impossible avec ces identifiants.</p>
+  }
+
+  <button type="submit" [disabled]="isSubmitting()">
+    {{ isSubmitting() ? 'Connexion…' : 'Se connecter' }}
+  </button>
+</form>

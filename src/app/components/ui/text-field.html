@@ -1,0 +1,18 @@
+<label class="field" [for]="fieldId">
+  <span>{{ label() }}</span>
+  <input
+    [id]="fieldId"
+    [type]="type()"
+    [value]="value()"
+    [disabled]="disabled()"
+    [attr.autocomplete]="autocomplete() || null"
+    [attr.aria-invalid]="error() ? 'true' : 'false'"
+    [attr.aria-describedby]="error() ? errorId : null"
+    (input)="updateValue($event)"
+    (blur)="markTouched()"
+  />
+</label>
+
+@if (error(); as message) {
+  <small class="error" [id]="errorId">{{ message }}</small>
+}
