@@ -1,10 +1,13 @@
 /*/Users/sravet/Developer/cinetrack/src/app/track-card/track-card.css*/
 /* rev Q7v3K9 */
 .card {
+  position: relative;
+}
+.card {
   display: grid;
   gap: 0.35rem;
   padding: 0.6rem;
-  border: 2px solid #d1d5db;
+  border: 2px solid rgba(0,0,0,0.06);
   border-radius: 0.5rem;
   cursor: pointer;
   transition:
@@ -14,7 +17,9 @@
 }
 
 .card:hover {
-  border-color: #6b7280;
+  border-color: var(--accent-200);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 18px rgba(236,72,153,0.08);
 }
 
 .card:focus-visible {
@@ -48,10 +53,36 @@
   width: fit-content;
   padding: 0.25rem 0.5rem;
   border-radius: 999px;
-  color: #1e3a8a;
-  background: #dbeafe;
+  color: #7f1d5a;
+  background: var(--accent-200);
   font-size: 0.875rem;
   font-weight: 700;
+}
+.fav {
+  position: absolute;
+  right: 0.5rem;
+  top: 0.5rem;
+  display: inline-grid;
+  place-items: center;
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.9);
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(0,0,0,0.06);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.07);
+  font-size: 1.05rem;
+  cursor: pointer;
+  color: var(--muted);
+  transition: transform 120ms ease, color 120ms ease, box-shadow 120ms ease;
+}
+.fav:hover{transform:scale(1.04);box-shadow:0 10px 24px rgba(236,72,153,0.12)}
+.fav[aria-pressed="true"] {
+  color: #fff;
+  background: linear-gradient(180deg,var(--accent-600),var(--accent));
+  border-color: rgba(219,39,119,0.9);
+  box-shadow: 0 10px 30px rgba(219,39,119,0.2);
+  transform: scale(1.06);
 }
 
 .badge.gold {

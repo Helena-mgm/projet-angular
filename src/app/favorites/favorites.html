@@ -1,0 +1,21 @@
+<section class="favorites">
+  <h2>Favoris</h2>
+
+  @if (favorites().length > 0) {
+    <section class="grid">
+      @for (track of favorites(); track track.id) {
+      <div class="favorite-item">
+        <app-track-card
+          [track]="track"
+          [active]="false"
+          (favoriteChange)="removeFavorite($event)"
+        />
+      </div>
+      } @empty {
+      <p>Aucun favori.</p>
+      }
+    </section>
+  } @else {
+    <p>Aucun favori.</p>
+  }
+</section>

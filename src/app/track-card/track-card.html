@@ -30,4 +30,16 @@
   @if (active()) {
     <span class="badge">En lecture</span>
   }
+  
+  <!-- Bouton favoris (visible si connecté) -->
+  @if (isLoggedIn()) {
+    <button
+      type="button"
+      class="fav"
+      (click)="toggleFavorite($event)"
+      aria-pressed="{{ currentFavorite() }}"
+    >
+      @if (currentFavorite()) { ♥ } @else { ♡ }
+    </button>
+  }
 </article>

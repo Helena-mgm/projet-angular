@@ -47,6 +47,8 @@ export class TrackDetail {
 
   protected isLoggedIn = computed(() => this.auth.isLoggedIn());
 
+
+
   goToEdit() {
     const id = this.id();
     if (typeof id === 'number') {
@@ -73,4 +75,6 @@ export class TrackDetail {
       },
     });
   }
+
+  
 }

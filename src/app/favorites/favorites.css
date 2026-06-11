@@ -1,0 +1,9 @@
+/* Minimal styles for favorites */
+.favorites {
+  padding: 1rem;
+}
+.favorites .grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+}

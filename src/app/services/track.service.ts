@@ -26,6 +26,7 @@ export class TrackService {
   }
 
   updateTrack(id: number, payload: Partial<Track>) {
-    return this.http.put<Track>(`${this.baseUrl}/${id}`, payload);
+    // Use PATCH for partial updates
+    return this.http.patch<Track>(`${this.baseUrl}/${id}`, payload);
   }
 }

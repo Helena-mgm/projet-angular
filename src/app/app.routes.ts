@@ -22,6 +22,11 @@ export const routes: Routes = [
     loadComponent: () => import('./track-form/track-form').then((m) => m.TrackForm),
   },
   {
+    path: 'favorites',
+    canActivate: [authGuard],
+    loadComponent: () => import('./favorites/favorites').then((m) => m.Favorites),
+  },
+  {
     path: 'login', // L4G5N6
     loadComponent: () => import('./auth-login/auth-login').then((m) => m.AuthLogin),
   },
